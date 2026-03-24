@@ -1,0 +1,45 @@
+const containers = { 
+    continue: document.getElementById("continueRow"),
+    anime: document.getElementById("animeRow"),
+    movie: document.getElementById("cartoonRow"),
+    disney: document.getElementById("disneyRow")
+};
+
+const videos = [ {
+    id: "slime_S1",
+    title: "Slime S1",
+    img: "img/slime_S1.jpg",
+    link: "movie_page/slime/S1.html",
+    tags: ["anime"]
+  },
+
+  {
+    id: "ben 10",
+    title: "ben 10",
+    img: "img/ben-10.jpg",
+    link: "movie_page/ben-10/ben_10.html",
+    tags: ["cartoon"]
+
+   }];
+
+  videos.forEach(video => {
+    video.tags.forEach(tag =>{
+
+   const container = containers[tag];
+     if (!container) return;
+
+     
+
+     const a = document.createElement("a");
+     a.href = video.link;
+
+     const img = document.createElement("img");
+     img.src = video.img;
+     img.className = "poster";
+     img.alt = video.title;
+
+     a.appendChild(img);
+     container.appendChild(a);
+  })
+})
+
